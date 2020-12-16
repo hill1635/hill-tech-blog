@@ -1,12 +1,22 @@
 [
     {
-        "name": "",
-        "email": "",
-        "password": ""
+        "username": "RickSanchez",
+        "password": "!nt3rD!m3ns1on@lC@bl3"
     },
     {
-        "name": "",
-        "email": "",
-        "password": ""
+        "username": "DocBrown",
+        "password": "h0v3rB0@rd"
+    },
+    {
+        "username": "DrWeird",
+        "password": "G3ntl3m3nB3h0ld!"
+    },
+    {
+        "username": "BillGates",
+        "password": "@ppl3sux"
+    },
+    {
+        "username": "TimCook",
+        "password": "m!cr0s0ftsux"
     }
 ]
