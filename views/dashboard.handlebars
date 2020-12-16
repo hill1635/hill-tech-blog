@@ -1,7 +1,12 @@
+{{#each yourBlogs as |yourBlog| }}
 <div class="body">
-    {{!-- Cycle through your blogs --}}
-    <div class="yourBlogPost">
-        <a href="">Your Blog Post Title</a>
-        <p>Date Posted</p>
+    {{!-- Cycle through all blog posts --}}
+    <div class="header">
+        <div class="blogPost">
+            <a href="">{{yourBlog.title}}</a>
+            <p>Posted by {{yourBlog.username}} on {{yourBlog.datePosted}}</p>
+        </div>
+        <p>{{yourBlog.content}}</p>
     </div>
 </div>
+{{/each}}
