@@ -3,7 +3,8 @@ const { Post } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
-        const postData = await Post.findall({
+        //Issue with postData
+        const postData = await Post.findAll({
             order: [['datePosted', 'ASC']],
         });
 
