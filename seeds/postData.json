@@ -3,18 +3,21 @@
         "username": "RickSanchez",
         "datePosted": "2020",
         "title": "Burrrp",
-        "content": "Wubbalubbadubdub"
+        "content": "Wubbalubbadubdub",
+        "yourPost": true
     },
     {
         "username": "DrWeird",
         "datePosted": "2020",
         "title": "Gentlemen, BEHOLD!",
-        "content": "Gentlemen, BEHOLD!"
+        "content": "Gentlemen, BEHOLD!",
+        "yourPost": false
     },
     {
         "username": "DocBrown",
         "datePosted": "1983",
         "title": "Don't Do It!",
-        "content": "Whatever you do, Marty, don't go to 2020!"
+        "content": "Whatever you do, Marty, don't go to 2020!",
+        "yourPost": false
     }
 ]
