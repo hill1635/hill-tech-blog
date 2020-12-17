@@ -29,9 +29,6 @@ Blog.init(
         },
     },
     {
-        hooks: {
-            //Not sure?
-        },
         sequelize,
         timestamps: true,
         freezeTableName: true,
