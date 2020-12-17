@@ -1,16 +1,15 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { Post } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
-        const userData = await User.findall({
-            attributes: { exclude: ['password'] },
-            order: [['username', 'ASC']],
+        const postData = await Post.findall({
+            order: [['datePosted', 'ASC']],
         });
 
-        const users = userData.map((project) => project.get({ plain: true }));
+        const posts = postData.map((project) => project.get({ plain: true }));
 
-        res.render('homepage', { users });
+        res.render('homepage', { posts });
     } catch (err) {
         res.status(500).json(err);
     }
