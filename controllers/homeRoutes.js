@@ -25,7 +25,7 @@ router.get('/dashboard', async (req, res) => {
 
         const yourPosts = postData.map((project) => project.get({ plain: true }));
 
-        res.render('dashboard');
+        res.render('dashboard', { yourPosts });
     } catch (err) {
         res.status(500).json(err);
     }
