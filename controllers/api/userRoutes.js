@@ -31,4 +31,6 @@ router.get("/api/users/logout", async (req, res) => {
   }
 });
 
+//POST for login and logout to add to list, don't need GET requests.
+
 module.exports = router;
