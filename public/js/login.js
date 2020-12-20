@@ -1,10 +1,8 @@
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
-    //Need to create id username-login for email login input in handlebars
-    const username = document.querySelector('#username-login').value.trim();
-    //Need to create id password-login for password login input in handlebars
-    const password = document.querySelector('#password-login').value.trim();
+    const username = document.querySelector('.loginName').value.trim();
+    const password = document.querySelector('.loginPass').value.trim();
 
     if (username && password) {
         const response = await fetch('/api/users/login', {
