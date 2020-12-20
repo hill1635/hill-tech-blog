@@ -25,10 +25,12 @@ router.get('/dashboard', async (req, res) => {
 
         const yourPosts = postData.map((project) => project.get({ plain: true }));
 
-        res.render('dashboard', { yourPosts });
+        res.render('dashboard');
     } catch (err) {
         res.status(500).json(err);
     }
 });
+
+module.exports = router;
 
 module.exports = router;

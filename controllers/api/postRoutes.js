@@ -1,0 +1,1 @@
+//GET, PUT, DELETE, POST routes for retrieving, adding, updating, and deleting posts

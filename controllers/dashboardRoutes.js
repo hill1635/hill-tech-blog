@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Post } = require('../models');
 
+//Cannot GET /dashboard error.
 router.get('/dashboard', async (req, res) => {
     try {
         const postData = await Post.findAll({
