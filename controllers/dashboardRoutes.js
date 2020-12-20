@@ -1,21 +1,21 @@
-const router = require('express').Router();
-const { Post } = require('../models');
+const router = require("express").Router();
+const { Post } = require("../models");
 
 //Cannot GET /dashboard error.
-router.get('/dashboard', async (req, res) => {
-    try {
-        const postData = await Post.findAll({
-            where: {
-                yourPost: true,
-            },
-        });
+router.get("/dashboard", async (req, res) => {
+  try {
+    const postData = await Post.findAll({
+      where: {
+        yourPost: true,
+      },
+    });
 
-        const yourPosts = postData.map((project) => project.get({ plain: true }));
+    const yourPosts = postData.map((project) => project.get({ plain: true }));
 
-        res.render('dashboard', { yourPosts });
-    } catch (err) {
-        res.status(500).json(err);
-    }
+    res.render("dashboard", { yourPosts });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
