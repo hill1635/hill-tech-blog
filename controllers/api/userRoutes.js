@@ -33,4 +33,23 @@ router.get("/api/users/logout", async (req, res) => {
 
 //POST for login and logout to add to list, don't need GET requests.
 
+router.post("/", async (req, res) => {
+  try {
+    const newUser = await User.create({
+      username: req.body.username,
+      passsword: req.body.password,
+    });
+
+    req.session.save(() => {
+      req.session.loggedIn = true;
+
+      res.status(200).json(newUser);
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
 module.exports = router;
