@@ -1,22 +1,27 @@
 [
     {
         "username": "RickSanchez",
-        "password": "!nt3rD!m3ns1on@lC@bl3"
+        "password": "!nt3rD!m3ns1on@lC@bl3",
+        "loggedIn": false
     },
     {
         "username": "DocBrown",
-        "password": "h0v3rB0@rd"
+        "password": "h0v3rB0@rd",
+        "loggedIn": true
     },
     {
         "username": "DrWeird",
-        "password": "G3ntl3m3nB3h0ld!"
+        "password": "G3ntl3m3nB3h0ld!",
+        "loggedIn": false
     },
     {
         "username": "BillGates",
-        "password": "@ppl3sux"
+        "password": "@ppl3sux",
+        "loggedIn": false
     },
     {
         "username": "TimCook",
-        "password": "m!cr0s0ftsux"
+        "password": "m!cr0s0ftsux",
+        "loggedIn": "true"
     }
 ]

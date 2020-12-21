@@ -3,7 +3,7 @@ const { User } = require("../../models");
 
 //Login stuff here
 
-router.get("/api/users", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const userData = await User.findAll({});
 
@@ -13,7 +13,7 @@ router.get("/api/users", async (req, res) => {
   }
 });
 
-router.get("/api/users/login", async (req, res) => {
+router.get("/login", async (req, res) => {
   try {
     const userData = await User.findAll({
       where: {
@@ -27,7 +27,7 @@ router.get("/api/users/login", async (req, res) => {
   }
 });
 
-router.get("/api/users/logout", async (req, res) => {
+router.get("/logout", async (req, res) => {
   try {
     const userData = await User.findAll({
       where: {
