@@ -3,6 +3,16 @@ const { User } = require("../../models");
 
 //Login stuff here
 
+router.get("/api/users", async (req, res) => {
+  try {
+    const userData = await User.findAll({});
+
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("/api/users/login", async (req, res) => {
   try {
     const userData = await User.findAll({
@@ -61,7 +71,7 @@ router.post("/login", async (req, res) => {
 
     if (!userData) {
       res.status(400)
-        .json({ message: "Incorrect email or password.  Please try again." });
+        .json({ message: "Incorrect username or password.  Please try again." });
       return;
     }
 
@@ -71,7 +81,7 @@ router.post("/login", async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: "Incorrect email or password.  Please try again." });
+        .json({ message: "Incorrect username or password.  Please try again." });
       return;
     }
 
