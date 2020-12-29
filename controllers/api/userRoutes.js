@@ -16,11 +16,7 @@ router.get("/", async (req, res) => {
 
 router.get("/login", async (req, res) => {
   try {
-    const userData = await User.findAll({
-      where: {
-        loggedIn: true,
-      },
-    });
+    const userData = await User.findAll(req.session.loggedIn);
 
     res.status(200).json(userData);
   } catch (err) {
@@ -30,11 +26,7 @@ router.get("/login", async (req, res) => {
 
 router.get("/logout", async (req, res) => {
   try {
-    const userData = await User.findAll({
-      where: {
-        loggedIn: false,
-      },
-    });
+    const userData = await User.findAll(!req.session.loggedIn);
 
     res.status(200).json(userData);
   } catch (err) {
