@@ -13,14 +13,12 @@ const signUpHandler = async (event) => {
     });
 
     if (newUser.ok) {
-      fetch("/api/users/login", {
-        method: "POST",
-        body: JSON.stringify({ username, password }),
-        headers: { "Content-Type": "application/json" },
-      });
-      document.location.replace("/");
-    } else {
-      alert("Username or password format not correct");
+      // fetch("/api/users/login", {
+      //   method: "POST",
+      //   body: JSON.stringify({ username, password }),
+      //   headers: { "Content-Type": "application/json" },
+      // });
+      document.location.replace("/login");
     }
   }
 };

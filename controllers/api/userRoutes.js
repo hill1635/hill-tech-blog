@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 const { User } = require("../../models");
 
 //Login stuff here
@@ -16,7 +16,9 @@ router.get("/", async (req, res) => {
 
 router.get("/login", async (req, res) => {
   try {
-    const userData = await User.findAll(req.session.loggedIn);
+    const userData = await User.findAll({
+      where: req.session.logged_in === true,
+    });
 
     res.status(200).json(userData);
   } catch (err) {
@@ -26,7 +28,10 @@ router.get("/login", async (req, res) => {
 
 router.get("/logout", async (req, res) => {
   try {
-    const userData = await User.findAll(!req.session.loggedIn);
+    // Doesn't work
+    const userData = await User.findAll({
+      where: req.session.logged_in === false,
+    });
 
     res.status(200).json(userData);
   } catch (err) {
@@ -40,18 +45,17 @@ router.post("/", async (req, res) => {
   try {
     const newUser = req.body;
 
-    newUser.password = await bcrypt.hash(req.body.password, 10);
+    // newUser.password = await bcrypt.hash(req.body.password, 10);
 
     const userData = await User.create(req.body);
 
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.loggedIn = true;
+      req.session.logged_in = true;
 
       res.status(200).json(newUser);
     });
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -71,7 +75,7 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    // const validPassword = await userData.checkPassword(req.body.password);
+    const validPassword = await userData.checkPassword(req.body.password);
 
 
     if (!validPassword) {
@@ -83,7 +87,7 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.loggedIn = true;
+      req.session.logged_in = true;
 
       res
         .status(200)
@@ -95,8 +99,9 @@ router.post("/login", async (req, res) => {
   }
 });
 
+//Doesn't work
 router.post("/logout", (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
     });

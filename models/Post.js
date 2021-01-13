@@ -27,9 +27,6 @@ Post.init(
     content: {
       type: DataTypes.STRING,
     },
-    yourPost: {
-      type: DataTypes.BOOLEAN,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

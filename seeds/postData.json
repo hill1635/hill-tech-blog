@@ -4,20 +4,20 @@
         "datePosted": "2020",
         "title": "Burrrp",
         "content": "Wubbalubbadubdub",
-        "yourPost": true
+        "user_id": 1
     },
     {
         "username": "DrWeird",
         "datePosted": "2020",
         "title": "Gentlemen, BEHOLD!",
         "content": "Gentlemen, BEHOLD!",
-        "yourPost": false
+]        "user_id": 3
     },
     {
         "username": "DocBrown",
         "datePosted": "1983",
         "title": "Don't Do It!",
         "content": "Whatever you do, Marty, don't go to 2020!",
-        "yourPost": false
+        "user_id": 2
     }
 ]

@@ -19,7 +19,7 @@ router.get("/dashboard", async (req, res) => {
   try {
     const postData = await Post.findAll({
       where: {
-        yourPost: true,
+        id: this.id,
       },
     });
 
