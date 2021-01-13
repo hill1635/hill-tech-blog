@@ -17,11 +17,7 @@ router.get("/", async (req, res) => {
 
 router.get("/dashboard", async (req, res) => {
   try {
-    const postData = await Post.findAll({
-      where: {
-        id: this.id,
-      },
-    });
+    const postData = await Post.findByPk(req.params.id);
 
     const yourPosts = postData.map((project) => project.get({ plain: true }));
 

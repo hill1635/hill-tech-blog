@@ -47,13 +47,13 @@ router.post("/", async (req, res) => {
 
     // newUser.password = await bcrypt.hash(req.body.password, 10);
 
-    const userData = await User.create(req.body);
+    const userData = await User.create(newUser);
 
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
-      res.status(200).json(newUser);
+      res.status(200).json(userData);
     });
   } catch (err) {
     res.status(500).json(err);
