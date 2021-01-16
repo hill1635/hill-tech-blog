@@ -1,5 +1,5 @@
-{{#each myPosts as |myPost| }}
 <div class="body">
+{{#each myPosts as |myPost| }}
     {{!-- Cycle through all Post posts --}}
     <div class="myPost">
         <div class="header">
@@ -10,6 +10,8 @@
             <p>{{myPost.content}}</p>
         </div>
     </div>
-    <button class="addPost">Add Post</button>
-</div>
 {{/each}}
+</div>
+    <button class="addPost">Add Post</button>
+
+    <script src="js/post.js"></script>
