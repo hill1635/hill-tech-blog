@@ -1,8 +1,5 @@
 const router = require("express").Router();
-// const bcrypt = require("bcrypt");
 const { User } = require("../../models");
-
-//Login stuff here
 
 router.get("/", async (req, res) => {
   try {
@@ -29,6 +26,7 @@ router.get("/login", async (req, res) => {
 router.get("/logout", async (req, res) => {
   try {
     // Doesn't work
+    console.log("req: ", req);
     const userData = await User.findAll({
       where: req.session.logged_in === false,
     });
@@ -39,22 +37,11 @@ router.get("/logout", async (req, res) => {
   }
 });
 
-//POST for login and logout to add to list, don't need GET requests.
-
 router.post("/", async (req, res) => {
   try {
     const newUser = req.body;
-
-    // newUser.password = await bcrypt.hash(req.body.password, 10);
-
     const userData = await User.create(newUser);
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
-    });
+    res.status(200).json(userData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -69,26 +56,24 @@ router.post("/login", async (req, res) => {
     });
 
     if (!userData) {
-      res
-        .status(400)
-        .json({ message: "Incorrect username or password.  Please try again." });
+      res.status(400).json({
+        message: "Incorrect username or password.  Please try again.",
+      });
       return;
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
 
-
     if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: "Incorrect username or password.  Please try again." });
+      res.status(400).json({
+        message: "Incorrect username or password.  Please try again.",
+      });
       return;
     }
 
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-
       res
         .status(200)
         .json({ user: userData, message: "You are now logged in." });
@@ -99,7 +84,6 @@ router.post("/login", async (req, res) => {
   }
 });
 
-//Doesn't work
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
@@ -109,6 +93,5 @@ router.post("/logout", (req, res) => {
     res.status(404).end();
   }
 });
-
 
 module.exports = router;
