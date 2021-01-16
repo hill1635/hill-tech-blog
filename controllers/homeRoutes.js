@@ -17,7 +17,12 @@ router.get("/", async (req, res) => {
 
 router.get("/dashboard", async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.session.user_id);
+    const postData = await Post.findAll({
+      where: {
+        user_id: req.session.user_id
+      },
+      order: [["datePosted", "DESC"]],
+    });
 
     const myPosts = postData.map((project) => project.get({ plain: true }));
 
