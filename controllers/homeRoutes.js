@@ -3,7 +3,6 @@ const { Post } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
-    console.log("req.session: ", req.session);
     const postData = await Post.findAll({
       order: [["datePosted", "DESC"]],
     });
@@ -22,16 +21,16 @@ router.get("/", async (req, res) => {
 
 router.get("/dashboard", async (req, res) => {
   try {
-    const postData = await Post.findAll({
-      where: {
-        user_id: req.session.user_id,
-      },
-      order: [["datePosted", "DESC"]],
-    });
-
-    const myPosts = postData.map((project) => project.get({ plain: true }));
-
     if (req.session.logged_in === true) {
+      const postData = await Post.findAll({
+        where: {
+          user_id: req.session.user_id,
+        },
+        order: [["datePosted", "DESC"]],
+      });
+
+      const myPosts = postData.map((project) => project.get({ plain: true }));
+      console.log("req.session: ", req.session);
       res.render("dashboard", { myPosts });
     } else {
       res.render("login");
