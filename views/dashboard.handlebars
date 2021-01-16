@@ -1,12 +1,14 @@
 {{#each myPosts as |myPost| }}
 <div class="body">
     {{!-- Cycle through all Post posts --}}
-    <div class="header">
-        <div class="myPost">
+    <div class="myPost">
+        <div class="header">
             <a href="">{{myPost.title}}</a>
             <p>Posted by {{myPost.username}} on {{myPost.datePosted}}</p>
         </div>
-        <p>{{myPost.content}}</p>
+        <div class="content">
+            <p>{{myPost.content}}</p>
+        </div>
     </div>
     <button class="addPost">Add Post</button>
 </div>
