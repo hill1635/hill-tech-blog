@@ -2,8 +2,8 @@
 const router = require("express").Router();
 const { Post } = require("../../models");
 
-//Get user by id to display posts on dashboard
-router.post("/:id", async (req, res) => {
+//Create new post
+router.post("/", async (req, res) => {
   try {
     const newPost = req.body;
     const postData = await Post.create(newPost);
