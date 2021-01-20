@@ -26,7 +26,7 @@ router.get("/dashboard", async (req, res) => {
         where: {
           user_id: req.session.user_id,
         },
-        order: [["datePosted", "DESC"]],
+        order: [["created_at", "DESC"]],
       });
 
       const myPosts = postData.map((project) => project.get({ plain: true }));
