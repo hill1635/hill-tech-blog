@@ -4,7 +4,7 @@ const { Post } = require("../models");
 router.get("/", async (req, res) => {
   try {
     const postData = await Post.findAll({
-      order: [["datePosted", "DESC"]],
+      order: [["created_at", "DESC"]],
     });
 
     const posts = postData.map((project) => project.get({ plain: true }));
