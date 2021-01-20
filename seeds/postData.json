@@ -2,7 +2,7 @@
     {
         "title": "Burrrp",
         "content": "Wubbalubbadubdub",
-        "user_id": 2
+        "user_id": 1
     },
     {
         "title": "Gentlemen, BEHOLD!",
@@ -12,6 +12,6 @@
     {
         "title": "Don't Do It!",
         "content": "Whatever you do, Marty, don't go to 2020!",
-        "user_id": 4
+        "user_id": 2
     }
 ]
