@@ -10,17 +10,21 @@ const submitPost = async () => {
   var title = titleInput.value;
   var content = contentInput.value;
 
-  //Does not work
   const response = await fetch("/api/posts/", {
     method: "POST",
-    body: JSON.stringify({ title: title, content: content, user_id : this.user_id }),
+    body: JSON.stringify({
+      title: content,
+      content: title,
+    }),
     headers: { "Content-Type": "application/json" },
   });
+  console.log("response: ", response);
 
   if (response.ok) {
-    headerDiv.setAttribute("style", "display: none");
+    console.log("success");
+    // headerDiv.setAttribute("style", "display: none");
   } else {
-    console.log(response.statusText);
+    console.log("status text: ", response.statusText);
   }
 };
 

@@ -11,15 +11,6 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    datePosted: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      //Timestamp?
-    },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
