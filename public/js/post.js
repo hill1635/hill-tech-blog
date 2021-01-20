@@ -21,8 +21,7 @@ const submitPost = async () => {
   console.log("response: ", response);
 
   if (response.ok) {
-    console.log("success");
-    // headerDiv.setAttribute("style", "display: none");
+    location.reload();
   } else {
     console.log("status text: ", response.statusText);
   }
