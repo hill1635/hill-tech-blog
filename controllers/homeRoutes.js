@@ -4,10 +4,11 @@ const { Post } = require("../models");
 router.get("/", async (req, res) => {
   try {
     const postData = await Post.findAll({
-      order: [["created_at", "DESC"]],
+      order: [["createdAt", "DESC"]],
     });
 
     const posts = postData.map((project) => project.get({ plain: true }));
+    console.log(posts);
 
     if (req.session.logged_in === true) {
       res.render("homepage", { posts });
@@ -26,7 +27,7 @@ router.get("/dashboard", async (req, res) => {
         where: {
           user_id: req.session.user_id,
         },
-        order: [["created_at", "DESC"]],
+        order: [["createdAt", "DESC"]],
       });
 
       const myPosts = postData.map((project) => project.get({ plain: true }));
