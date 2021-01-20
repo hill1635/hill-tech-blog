@@ -29,6 +29,7 @@ router.get("/dashboard", async (req, res) => {
           user_id: req.session.user_id,
         },
         order: [["createdAt", "DESC"]],
+        include: { model: User },
       });
 
       const myPosts = postData.map((project) => project.get({ plain: true }));
