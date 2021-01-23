@@ -18,7 +18,6 @@ const submitPost = async () => {
     }),
     headers: { "Content-Type": "application/json" },
   });
-  console.log("response: ", response);
 
   if (response.ok) {
     location.reload();
@@ -27,9 +26,7 @@ const submitPost = async () => {
   }
 };
 
-//Function to add post
 const addPost = async () => {
-  //create elements here
   body.appendChild(newDiv);
   newDiv.appendChild(headerDiv);
   newDiv.appendChild(contentDiv);
@@ -41,22 +38,25 @@ const addPost = async () => {
 };
 
 const deletePost = async () => {
-  var thisPost = document.querySelector(".myPost");
+  var thisPost = document.querySelectorAll(".myPost");
+  console.log("thisPost: ", thisPost);
   var id = thisPost.attributes[1].value;
-  const response = await fetch("/api/posts/" + id, {
-    method: "DELETE",
-    headers: { "Content-Type": "application/json" },
-  });
+  console.log(id);
+  // const response = await fetch("/api/posts/" + id, {
+  //   method: "DELETE",
+  //   headers: { "Content-Type": "application/json" },
+  // });
 
-  if (response.ok) {
-    location.reload();
-  } else {
-    console.log("status text: ", response.statusText);
-  }
+  // if (response.ok) {
+  //   location.reload();
+  // } else {
+  //   console.log("status text: ", response.statusText);
+  // }
 };
 
 function init() {
   document.querySelector(".addPost").addEventListener("click", addPost);
-  document.querySelector(".deletePost").addEventListener("click", deletePost);
+  var deleteBtns = document.querySelectorAll(".deletePost");
+  deleteBtns.forEach(button => button.addEventListener("click", deletePost));
 }
 init();

@@ -9,7 +9,6 @@ router.get("/", async (req, res) => {
     });
 
     const posts = postData.map((project) => project.get({ plain: true }));
-    console.log(posts);
 
     res.render("homepage", { posts });
   } catch (err) {

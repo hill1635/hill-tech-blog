@@ -9,7 +9,6 @@ const submitComment = async () => {
     }),
     headers: { "Content-Type": "application/json" },
   });
-  console.log("response: ", response);
 
   if (response.ok) {
     location.reload();

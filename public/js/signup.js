@@ -1,6 +1,5 @@
 const signUpHandler = async (event) => {
   event.preventDefault();
-  console.log("Success");
 
   const username = document.querySelector(".signupName").value.trim();
   const password = document.querySelector(".signupPass").value.trim();
