@@ -11,11 +11,7 @@ router.get("/", async (req, res) => {
     const posts = postData.map((project) => project.get({ plain: true }));
     console.log(posts);
 
-    if (req.session.logged_in === true) {
-      res.render("homepage", { posts });
-    } else {
-      res.render("login");
-    }
+    res.render("homepage", { posts });
   } catch (err) {
     res.status(500).json(err);
   }
