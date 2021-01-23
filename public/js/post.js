@@ -40,14 +40,23 @@ const addPost = async () => {
   submitBtn.addEventListener("click", submitPost);
 };
 
-//Query selector for input functions
+const deletePost = async () => {
+  var thisPost = document.querySelector(".myPost");
+  var id = thisPost.attributes[1].value;
+  const response = await fetch("/api/posts/" + id, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  });
 
-//Function to update post
+  if (response.ok) {
+    location.reload();
+  } else {
+    console.log("status text: ", response.statusText);
+  }
+};
 
-//Function to comment on post
-
-//Event listeners for buttons
 function init() {
   document.querySelector(".addPost").addEventListener("click", addPost);
+  document.querySelector(".deletePost").addEventListener("click", deletePost);
 }
 init();

@@ -1,9 +1,9 @@
 <div class="body">
 {{#each myPosts as |myPost| }}
     {{!-- Cycle through all Post posts --}}
-    <div class="myPost">
+    <div class="myPost" data-id={{myPost.id}}>
         <div class="header">
-            <a href="">{{myPost.title}}</a>
+            <h3 class ="title">{{myPost.title}}</h3>
             <p>Posted by you on {{myPost.createdAt}}</p>
         </div>
         <div class="content">
