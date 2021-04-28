@@ -11,7 +11,7 @@ i {
 }
 
 .signup {
-  color: orange;
+  color: black;
 }
 
 .login {
@@ -24,8 +24,8 @@ i {
 
 .brand {
   font-family: "Fira Sans", sans-serif;
-  letter-spacing: 0.05em;
-  background: linear-gradient(135deg, rgb(80, 0, 80), purple, red, yellow);
+  letter-spacing: 0.04em;
+  background: linear-gradient(120deg, black, rgb(80, 0, 80), rgb(80, 0, 80), purple, purple, red, red, orange, yellow);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
