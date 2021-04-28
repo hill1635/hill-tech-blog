@@ -1,12 +1,32 @@
 i {
-  color: black;
   margin: 5px 0px;
+}
+
+.home {
+  color: blue;
+}
+
+.dash {
+  color: purple;
+}
+
+.signup {
+  color: orange;
+}
+
+.login {
+  color: green;
+}
+
+.logout {
+  color: red;
+}
+
+.brand {
+  font-family: "Fira Sans", sans-serif;
 }
 
 .nav-item {
   color: black;
   margin: 0px 10px 0px 10px;
-  border: solid;
-  border-radius: 50px;
-  border-width: 2px;
 }
