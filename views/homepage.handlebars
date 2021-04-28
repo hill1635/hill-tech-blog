@@ -1,15 +1,12 @@
 {{#each posts as |post| }}
-<div class="body">
-    <div class="post">
-        <div class="header">
-            <a href="">{{post.title}}</a>
-            <p>Posted by {{user.username}} on {{post.createdAt}}</p>
-        </div>
-        <div class="content">
-            <p>{{post.content}}</p>
-            <button class="commentBtn">Comment</button>
-        </div>
-        <div class="comments"></div>
+<div class="card col-10 mx-auto my-5">
+    <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <h6 class="card-subtitle text-muted">Posted by {{user.username}} on {{post.createdAt}}</h6>
+        <hr>
+        <p class="care-text">{{post.content}}</p>
+        <button class="commentBtn">Comment</button>
     </div>
+    <div class="comments"></div>
 </div>
 {{/each}}
