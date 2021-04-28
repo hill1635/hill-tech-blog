@@ -24,6 +24,10 @@ i {
 
 .brand {
   font-family: "Fira Sans", sans-serif;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, rgb(80, 0, 80), purple, red, yellow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .nav-item {
