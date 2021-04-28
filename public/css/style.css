@@ -1,5 +1,13 @@
+.container-flex {
+  background: rgba(245, 245, 220, 0.15);
+}
+
 i {
   margin: 5px 0px;
+}
+
+hr {
+  width: 25%;
 }
 
 .home {
