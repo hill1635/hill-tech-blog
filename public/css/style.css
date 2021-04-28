@@ -1,0 +1,11 @@
+i {
+  color: black;
+  margin: 5px;
+  float: left;
+}
+
+li {
+  color: black;
+  text-decoration: none;
+  margin: 10px;
+}
