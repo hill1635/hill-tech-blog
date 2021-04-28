@@ -1,11 +1,12 @@
 i {
   color: black;
-  margin: 5px;
-  float: left;
+  margin: 5px 0px;
 }
 
-li {
+.nav-item {
   color: black;
-  text-decoration: none;
-  margin: 10px;
+  margin: 0px 10px 0px 10px;
+  border: solid;
+  border-radius: 50px;
+  border-width: 2px;
 }
