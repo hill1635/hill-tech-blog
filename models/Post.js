@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
+const moment = require("moment");
 
 class Post extends Model {}
 
@@ -18,6 +19,12 @@ Post.init(
     content: {
       type: DataTypes.STRING,
     },
+    createdAt: {
+      type: DataTypes.DATE,
+      get() {
+        return moment(this.getDataValue("createdAt")).format("ll");
+      }
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -28,7 +35,6 @@ Post.init(
   },
   {
     sequelize,
-    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: "post",
